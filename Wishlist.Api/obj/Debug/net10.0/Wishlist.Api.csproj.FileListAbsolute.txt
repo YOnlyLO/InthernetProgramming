@@ -32,3 +32,4 @@ D:\Study\InthernetProgramming\InthernetProgramming\Wishlist.Api\obj\Debug\net10.
 D:\Study\InthernetProgramming\InthernetProgramming\Wishlist.Api\obj\Debug\net10.0\Wishlist.Api.pdb
 D:\Study\InthernetProgramming\InthernetProgramming\Wishlist.Api\obj\Debug\net10.0\Wishlist.Api.genruntimeconfig.cache
 D:\Study\InthernetProgramming\InthernetProgramming\Wishlist.Api\obj\Debug\net10.0\ref\Wishlist.Api.dll
+D:\Study\InthernetProgramming\InthernetProgramming\Wishlist.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
