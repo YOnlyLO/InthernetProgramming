@@ -1,0 +1,12 @@
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.DataAccess\bin\Debug\net10.0\FriendWish.DataAccess.deps.json
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.DataAccess\bin\Debug\net10.0\FriendWish.DataAccess.dll
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.DataAccess\bin\Debug\net10.0\FriendWish.DataAccess.pdb
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.DataAccess\obj\Debug\net10.0\FriendWish.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.DataAccess\obj\Debug\net10.0\FriendWish.DataAccess.AssemblyInfoInputs.cache
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.DataAccess\obj\Debug\net10.0\FriendWish.DataAccess.AssemblyInfo.cs
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.DataAccess\obj\Debug\net10.0\FriendWish.DataAccess.csproj.CoreCompileInputs.cache
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.DataAccess\obj\Debug\net10.0\FriendWish.DataAccess.sourcelink.json
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.DataAccess\obj\Debug\net10.0\FriendWish.DataAccess.dll
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.DataAccess\obj\Debug\net10.0\refint\FriendWish.DataAccess.dll
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.DataAccess\obj\Debug\net10.0\FriendWish.DataAccess.pdb
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.DataAccess\obj\Debug\net10.0\ref\FriendWish.DataAccess.dll

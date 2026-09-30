@@ -1,0 +1,12 @@
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.Core\bin\Debug\net10.0\FriendWish.Core.deps.json
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.Core\bin\Debug\net10.0\FriendWish.Core.dll
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.Core\bin\Debug\net10.0\FriendWish.Core.pdb
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.Core\obj\Debug\net10.0\FriendWish.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.Core\obj\Debug\net10.0\FriendWish.Core.AssemblyInfoInputs.cache
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.Core\obj\Debug\net10.0\FriendWish.Core.AssemblyInfo.cs
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.Core\obj\Debug\net10.0\FriendWish.Core.csproj.CoreCompileInputs.cache
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.Core\obj\Debug\net10.0\FriendWish.Core.sourcelink.json
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.Core\obj\Debug\net10.0\FriendWish.Core.dll
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.Core\obj\Debug\net10.0\refint\FriendWish.Core.dll
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.Core\obj\Debug\net10.0\FriendWish.Core.pdb
+D:\Study\InthernetProgramming\InthernetProgramming\backend\FriendWish.Core\obj\Debug\net10.0\ref\FriendWish.Core.dll
