@@ -1,5 +1,0 @@
-<Solution>
-  <Project Path="FriendWish.Api/FriendWish.Api.csproj" />
-  <Project Path="FriendWish.Core/FriendWish.Core.csproj" />
-  <Project Path="FriendWish.DataAccess/FriendWish.DataAccess.csproj" />
-</Solution>
