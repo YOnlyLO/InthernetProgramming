@@ -74,6 +74,14 @@ public partial class User
             DateTime.UtcNow);
     }
 
+    /// <summary>
+    /// Приводит email к виду, в котором он хранится, — для поиска пользователя при входе.
+    /// </summary>
+    public static string NormalizeEmail(string email)
+    {
+        return email.Trim().ToLowerInvariant();
+    }
+
     public void ChangeName(string name)
     {
         Name = ValidateName(name);
@@ -125,7 +133,7 @@ public partial class User
 
     private static string ValidateEmail(string email)
     {
-        var normalized = Guard.Required(email, MaxEmailLength, "Email").ToLowerInvariant();
+        var normalized = NormalizeEmail(Guard.Required(email, MaxEmailLength, "Email"));
 
         if (!EmailRegex().IsMatch(normalized))
             throw new DomainException("Некорректный адрес электронной почты.");
