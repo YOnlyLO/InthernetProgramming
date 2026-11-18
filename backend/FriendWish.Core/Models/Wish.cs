@@ -70,6 +70,24 @@ public class Wish
             now);
     }
 
+    /// <summary>
+    /// Восстанавливает сохранённое желание без проверок: данные проверены при создании и изменении.
+    /// Только для слоя доступа к данным — новое желание создаёт <see cref="Create"/>.
+    /// </summary>
+    public static Wish Restore(
+        Guid id,
+        Guid userId,
+        string title,
+        string? description,
+        string? link,
+        decimal? price,
+        string? imageUrl,
+        DateTime createdAt,
+        DateTime updatedAt)
+    {
+        return new Wish(id, userId, title, description, link, price, imageUrl, createdAt, updatedAt);
+    }
+
     public void Update(string title, string? description, string? link, decimal? price, string? imageUrl)
     {
         // Сначала проверяем все значения, чтобы при ошибке не оставить желание изменённым наполовину.

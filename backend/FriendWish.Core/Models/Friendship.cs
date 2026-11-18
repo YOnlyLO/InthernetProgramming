@@ -58,6 +58,21 @@ public class Friendship
             respondedAt: null);
     }
 
+    /// <summary>
+    /// Восстанавливает сохранённую заявку без проверок: данные проверены при создании и изменении.
+    /// Только для слоя доступа к данным — новую заявку создаёт <see cref="Create"/>.
+    /// </summary>
+    public static Friendship Restore(
+        Guid id,
+        Guid requesterId,
+        Guid addresseeId,
+        FriendshipStatus status,
+        DateTime requestedAt,
+        DateTime? respondedAt)
+    {
+        return new Friendship(id, requesterId, addresseeId, status, requestedAt, respondedAt);
+    }
+
     public void Accept(Guid userId)
     {
         EnsureCanRespond(userId);

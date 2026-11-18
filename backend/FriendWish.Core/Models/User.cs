@@ -75,6 +75,24 @@ public partial class User
     }
 
     /// <summary>
+    /// Восстанавливает сохранённого пользователя без проверок: данные проверены при создании и изменении.
+    /// Только для слоя доступа к данным — нового пользователя создаёт <see cref="Create"/>.
+    /// </summary>
+    public static User Restore(
+        Guid id,
+        string name,
+        string userName,
+        string email,
+        string passwordHash,
+        string? avatarUrl,
+        UserRole role,
+        UserStatus status,
+        DateTime createdAt)
+    {
+        return new User(id, name, userName, email, passwordHash, avatarUrl, role, status, createdAt);
+    }
+
+    /// <summary>
     /// Приводит email к виду, в котором он хранится, — для поиска пользователя при входе.
     /// </summary>
     public static string NormalizeEmail(string email)
