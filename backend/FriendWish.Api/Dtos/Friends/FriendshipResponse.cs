@@ -4,7 +4,7 @@ namespace FriendWish.Api.Dtos.Friends;
 
 /// <summary>
 /// Заявка в друзья после отправки. Если второй пользователь уже позвал в друзья, заявка сразу принята —
-/// тогда <see cref="Status"/> равен <c>Accepted</c>.
+/// тогда <c>status</c> равен <c>Accepted</c>.
 /// </summary>
 public sealed record FriendshipResponse(
     Guid Id,

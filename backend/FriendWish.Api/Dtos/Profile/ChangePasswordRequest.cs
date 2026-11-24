@@ -14,7 +14,7 @@ public sealed record ChangePasswordRequest
     [Required(ErrorMessage = "Поле «Новый пароль» обязательно для заполнения.")]
     public string NewPassword { get; init; } = string.Empty;
 
-    /// <summary>Повтор нового пароля, должен совпадать с <see cref="NewPassword"/>.</summary>
+    /// <summary>Повтор нового пароля, должен совпадать с <c>newPassword</c>.</summary>
     [Required(ErrorMessage = "Поле «Подтверждение пароля» обязательно для заполнения.")]
     [Compare(nameof(NewPassword), ErrorMessage = "Пароли не совпадают.")]
     public string ConfirmNewPassword { get; init; } = string.Empty;

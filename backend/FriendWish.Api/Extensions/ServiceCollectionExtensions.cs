@@ -1,5 +1,7 @@
 using System.Text.Json.Serialization;
 using FriendWish.Api.Auth;
+using FriendWish.Api.Errors;
+using FriendWish.Api.OpenApi;
 using FriendWish.Core.Interfaces.Auth;
 using FriendWish.Core.Interfaces.Services;
 using FriendWish.Core.Services;
@@ -7,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi;
 
 namespace FriendWish.Api.Extensions;
 
@@ -82,6 +85,47 @@ public static class ServiceCollectionExtensions
                 options.ModelMetadataDetailsProviders.Add(new SystemTextJsonValidationMetadataProvider());
             })
             .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+
+        // Генератор OpenAPI строит схемы по этим настройкам, а не по MVC: без них enum в документе был бы числом.
+        services.ConfigureHttpJsonOptions(options =>
+            options.SerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+
+        return services;
+    }
+
+    /// <summary>
+    /// Регистрирует единый формат ошибок: ProblemDetails для исключений домена, ошибок валидации и статусов без тела.
+    /// </summary>
+    public static IServiceCollection AddApiErrorHandling(this IServiceCollection services)
+    {
+        services.AddExceptionHandler<DomainExceptionHandler>();
+        services.AddProblemDetails(options => options.CustomizeProblemDetails = ProblemDetailsDefaults.Apply);
+
+        return services;
+    }
+
+    /// <summary>
+    /// Регистрирует документ OpenAPI (<c>/openapi/v1.json</c>) со схемой авторизации Bearer для Swagger UI.
+    /// </summary>
+    public static IServiceCollection AddApiDocumentation(this IServiceCollection services)
+    {
+        services.AddOpenApi(options =>
+        {
+            options.AddDocumentTransformer((document, _, _) =>
+            {
+                document.Info = new OpenApiInfo
+                {
+                    Title = "FriendWish API",
+                    Version = "v1",
+                    Description = "REST API сервиса списков желаний FriendWish. Чтобы вызвать защищённые методы, "
+                        + "войдите через POST /api/auth/login и вставьте accessToken в окно «Authorize»."
+                };
+
+                return Task.CompletedTask;
+            });
+            options.AddDocumentTransformer<BearerSecuritySchemeTransformer>();
+            options.AddOperationTransformer<BearerSecuritySchemeTransformer>();
+        });
 
         return services;
     }

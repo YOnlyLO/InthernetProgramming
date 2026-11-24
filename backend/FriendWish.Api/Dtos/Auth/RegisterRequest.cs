@@ -24,7 +24,7 @@ public sealed record RegisterRequest
     [Required(ErrorMessage = "Поле «Пароль» обязательно для заполнения.")]
     public string Password { get; init; } = string.Empty;
 
-    /// <summary>Повтор пароля, должен совпадать с <see cref="Password"/>.</summary>
+    /// <summary>Повтор пароля, должен совпадать с <c>password</c>.</summary>
     [Required(ErrorMessage = "Поле «Подтверждение пароля» обязательно для заполнения.")]
     [Compare(nameof(Password), ErrorMessage = "Пароли не совпадают.")]
     public string ConfirmPassword { get; init; } = string.Empty;
