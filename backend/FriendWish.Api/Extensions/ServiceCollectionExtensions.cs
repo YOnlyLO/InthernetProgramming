@@ -1,8 +1,10 @@
+using System.Text.Json.Serialization;
 using FriendWish.Api.Auth;
 using FriendWish.Core.Interfaces.Auth;
 using FriendWish.Core.Interfaces.Services;
 using FriendWish.Core.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
@@ -64,6 +66,22 @@ public static class ServiceCollectionExtensions
             });
 
         services.AddAuthorization();
+
+        return services;
+    }
+
+    /// <summary>
+    /// Регистрирует контроллеры и формат JSON: enum — строками (<c>"Admin"</c>, а не <c>1</c>).
+    /// </summary>
+    public static IServiceCollection AddApiControllers(this IServiceCollection services)
+    {
+        services
+            .AddControllers(options =>
+            {
+                // Ключи ошибок валидации — по именам полей JSON (confirmPassword), а не свойств C# (ConfirmPassword).
+                options.ModelMetadataDetailsProviders.Add(new SystemTextJsonValidationMetadataProvider());
+            })
+            .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
         return services;
     }

@@ -1,6 +1,49 @@
 @FriendWish.Api_HostAddress = http://localhost:5137
 
-GET {{FriendWish.Api_HostAddress}}/weatherforecast/
-Accept: application/json
+# Основной сценарий: регистрация → вход → профиль → желание. Полный список методов — в Swagger (/swagger).
 
-###
+### Регистрация
+POST {{FriendWish.Api_HostAddress}}/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Иван Петров",
+  "userName": "ivan_petrov",
+  "email": "ivan@example.com",
+  "password": "password123",
+  "confirmPassword": "password123"
+}
+
+### Вход — токен из ответа подставляется в запросы ниже
+# @name login
+POST {{FriendWish.Api_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "ivan@example.com",
+  "password": "password123"
+}
+
+### Свой профиль
+GET {{FriendWish.Api_HostAddress}}/api/profile
+Authorization: Bearer {{login.response.body.$.accessToken}}
+
+### Добавление желания
+POST {{FriendWish.Api_HostAddress}}/api/wishes
+Authorization: Bearer {{login.response.body.$.accessToken}}
+Content-Type: application/json
+
+{
+  "title": "Sony WH-1000XM6",
+  "description": "Беспроводные наушники с активным шумоподавлением",
+  "link": "https://example.com/sony-wh-1000xm6",
+  "price": 39990
+}
+
+### Свой список желаний
+GET {{FriendWish.Api_HostAddress}}/api/wishes
+Authorization: Bearer {{login.response.body.$.accessToken}}
+
+### Поиск пользователей
+GET {{FriendWish.Api_HostAddress}}/api/users/search?query=ivan
+Authorization: Bearer {{login.response.body.$.accessToken}}
